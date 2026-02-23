@@ -1,20 +1,20 @@
 
-class Point
+using System.Security.Cryptography;
+
+public class Point
 {
     double X;
     double Y;
-    double Z;
 
     public Point()
     {
         X = 0; Y = 0;
     }
 
-    public Point(double x, double y, double z = 0)
+    public Point(double x, double y)
     {
         X = x;
         Y = y;
-        Z = z;
     }
 
     public double DistanceTo(Point p)
@@ -49,31 +49,33 @@ class Exe
 }
 
 
-class Square
+public class Square
 {
+    public Point [] Points;
+
     public Square(params Point[] p1)
     {
-        
+        Points = (Point[]) p1.Clone();
     }
-
-    public double Area()
+    public double Area
     {
-        return 0;
+        get
+        {
+            return Math.Pow(Points[0].DistanceTo(Points[1]), 2);
+        }
     }
-
     public double Circumference()
     {
         return 0;
     }
-
     public void Move(Point p)
     {
-        
+        foreach(Point pp in Points)
+            pp.Move(p);
     }
-
     public void Rotate(double degree)
-    {
-        
+    {        
     }
 
+    public int PointCount() => Points.Length;
 }
