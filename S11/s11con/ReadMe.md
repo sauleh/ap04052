@@ -1,0 +1,19 @@
+- .Net Containers
+    - ArrayList
+    - BitArray
+    - Queue
+    - Stack
+    - Hashtable
+    - SortedList
+- .Net Generic Containers
+    - List
+    - Dictionary
+    - HashSet
+    - Queue
+    - Stack
+- .Net Generic Interfaces
+    - IComparable<>
+    - IEquatable<>
+    - IEnumerable<>
+    - IComparer
+- Generics

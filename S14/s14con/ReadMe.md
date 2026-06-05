@@ -1,0 +1,5 @@
+- Extention methods
+- Inheritance
+    - virtual method/override
+    - abstract/sealed class
+- Exceptions/Error Handling
