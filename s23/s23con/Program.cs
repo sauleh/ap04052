@@ -22,23 +22,20 @@ class Program
     static void Main(string[] args)
     {
         remaining_tasks = 100;
-        var x = Enumerable.Range(1,remaining_tasks)
-                  .Select(n => new InOut() {input = n})
-                  .Select(d => (t:new Thread(worker2), d))
+        var tasks = Enumerable.Range(1,remaining_tasks)
+                  .Select(n => new InOut() {input = n});
+
+        var threads = tasks.Select(d => (t:new Thread(worker2), d))
                   .ToList();
-        x.ForEach(p => p.t.Start(p.d));
+
+        threads.ForEach(p => p.t.Start(p.d));
 
         // ThreadPool.QueueUserWorkItem(x[0]);
 
         allworkfinished.WaitOne();
 
-        foreach(var d in x)
-            System.Console.WriteLine(d.d.output);
-
-
-
-
-        
+        foreach(var d in threads)
+            System.Console.WriteLine(d.d.output);        
     }
 
 
